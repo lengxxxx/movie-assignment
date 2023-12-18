@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppin', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   background: url("../assets/../IT.webp"); 
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* filter: blur(8px); */
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: rgba(255, 0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    
+}
+.logo{
+    font-size: 2rem;
+    
+    color: azure;
+    user-select: none;
+    
+}
+.nav a{
+    position: relative;
+    font-size: 1.1rem;
+    color: azure;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    
+}
+.nav a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+    
+}
+.nav a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.nav .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #fff ;
+    
+}
+.wrapper{
+    position: relative;
+    width:400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgb(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form {
+    width: 100%;
+    padding: 40px;
+    
+}
+
+.wrapper .form.login{
+transition: transform .18s ease;
+transform: translateX(0);
+}
+
+.wrapper.active .form.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+    
+}
+.wrapper.active .form.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+    }
+
+.form h2{
+    font-size: 2em;
+    color: #134870;
+    text-align: center;
+}
+
+.input{
+    position: relative;
+   width: 100%;
+   height: 50px;
+   border-bottom: 2px solid #124b76; 
+   margin: 30px 0 ;
+}
+
+.input label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #103d5f;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .4s;
+    
+}
+
+.input input:focus~label,
+.input input:valid~label {
+    top: -5px;
+}
+
+
+.input input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #103d5f;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2rem;
+    color: #103d5f;
+    line-height: 57px;
+}
+
+.remember{
+    font-size: .9em;
+    color: #103d5f;
+    font-weight: 500;
+    margin: -15 0 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+
+.remember label input {
+    accent-color: #103d5f;
+    margin-right: 10px;
+}
+
+.remember a {
+    color: #103d5f;
+    text-decoration: none;
+}
+.remember a:hover {
+    text-decoration: underline;
+}
+.btn{
+    width: 100%;
+    height: 30px;
+   background: #103d5f;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.register {
+    font-size: .9em;
+    color: #103d5f;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+    
+}
+.register p a {
+    color: #103d5f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #FF3D00;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+
+    .hidden{
+        display: none;
+    }

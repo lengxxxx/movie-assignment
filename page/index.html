@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/../css/movie.css">
+    <link rel="stylesheet" href="../assets/../css/footer.css">
+    <link rel="shortcut icon" href="/assets/img/logo-.jpg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../css/movie.css">
+</head>
+<style>
+    img {
+        pointer-events: none;
+    }
+
+    .movie_card {
+        padding: 0 !important;
+        width: 15rem;
+        height: 33rem;
+        margin: 14px;
+        border-radius: 10px;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .movie_card img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 33rem;
+
+    }
+
+    .movie_info {
+        color: #5e5c5c;
+    }
+
+    .movie_info i {
+        font-size: 20px;
+    }
+
+    .card-title {
+        width: 80%;
+        height: 4rem;
+    }
+
+    .play_button {
+        background-color: #ff3d49;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        right: 20px;
+        bottom: 111px;
+        font-size: 27px;
+        padding-left: 21px;
+        padding-top: 16px;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+
+    .credits {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 2px solid #8e24aa;
+        font-size: 18px;
+    }
+
+    .credits .card-body {
+        padding: 0;
+    }
+
+    .credits p {
+        padding-top: 15px;
+        padding-left: 18px;
+    }
+
+    .credits .card-body i {
+        color: #8e24aa;
+    }
+
+    .category {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 35px;
+    }
+</style>
+
+<body>
+    <aside class="background--banner">
+        <video muted autoplay loop poster="../img/background-image.webp">
+            <source src="../video/background-video.mp4" type="video/mp4">
+            <img src="background-image.webp" alt="Alternativa Video">
+        </video>
+        <div class="banner">
+            <div class="menu">
+                <nav>
+                    <ul class="navegacion navegacion--izquierda">
+                        <li class="logo"><a href="#"><img src="../img/universal.webp" alt="Logo Netflix"></a></li>
+                        <li><a href="#">Start⏷</a></li>
+                        <li><a href="#">Popular News</a></li>
+                        <li><a href="#">My list</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul class="navegacion navegacion--derecha">
+
+                        <li><a href="#"><img src="../icon/lupa.svg" alt="Lupa icono"></a></li>
+                        <input type="text" id="search-bar" placeholder="Search...">
+                        <a onclick="Signout()"><button type="button" class="btn btn-danger">Log Out</button></a>
+                        <li><a href="#"><img src="../icon/campana.png" alt="Campana icono"></a></li>
+                        <li class="usuario"><a href="#"><img src="../img/trump.jpg" alt="Usuario icono"></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="imagotipo">
+                <div class="imagotipo--imagen">
+                    <img src="../img/imagotipo-jurassic.webp" alt="imagotipo-jurassic">
+                </div>
+                <div class="imagotipo--info">
+                    <p>⏵Play</p>
+                    <p>ⓘ More Info</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="catalogos">
+        <!-- <section class="catalogo--peliculas">
+            <h1>popular movies</h1>
+           
+
+        </section> -->
+        <div class="sec">
+            <div class="info">
+                <span class="title">Popular</span>
+                <!-- <span class="btn3">Show More</span> -->
+            </div>
+            <div class="row-wrapper rounded-2">
+
+                <div id="card-wrapper" class="row justify-content-center">
+
+                </div>
+            </div>
+            <!-- <div class="footer-basic bg-dark text-light">
+                <footer>
+                    <div class="social"><a href="#"><i class="icon ion-social-youtube text-danger">
+    
+                            </i></a><a href="#"><i class="fa-brands fa-telegram text-primary"></i>
+                        </a><a href="#"><i class="icon ion-social-twitter text-primary"></i></a>
+                        <a href="#"><i class="icon ion-social-facebook text-primary"></i></a>
+                    </div> -->
+            <!-- <ul class="list-inline">
+                        <li class="list-inline-item"><a href="../assets/../page/movie.html">Home</a></li>
+                    </ul> -->
+            <!-- <p class="copyright">Design by Team E9 © 2023</p> -->
+            <!-- </footer> -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+        </div>
+        </div>
+        <script src="../js/movie.js"></script>
+
+    </main>
+    <footer class="footer">
+        <div class="footer--contenedor">
+            <br>
+            <ul class="iconos">
+                <li><a href="https://www.facebook.com/login.php/" target="_blank"><img src="../icon/facebook.svg" alt="facebook"></a></li>
+                <li><a href="https://www.instagram.com/accounts/login/"><img src="../icon/instagram.svg" alt="instagram"></a></li>
+                <li><a href="https://github.com/github-login"><img src="../icon/github.svg" alt="github"></a></li>
+                <li><a href="https://www.linkedin.com/login"><img src="../icon/linkedin.svg" alt="linkedin"></a></li>
+            </ul>
+            <div class="informacion">
+                <br>
+                <br>
+            </div>
+            <p class="idioma">🌎︎ cambodia</p>
+            <p class="contruccion">Design by Team E9 © 2023</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    </div>
+    <script src="../js/movie.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+
+        let MsgHead = document.getElementById('msg');
+        let GreetHead = document.getElementById('greet');
+        let SigoutBtn = document.getElementById('signoutbutton');
+
+        let Signout = () => {
+            sessionStorage.removeItem("user-creds");
+            sessionStorage.removeItem("user-info");
+            window.location.href = 'sigin.html'
+        }
+
+        let CheckCred = () => {
+            if (!sessionStorage.getItem("user-creds"))
+                window.location.href = 'sigin.html';
+            // console.log();
+            else {
+                MsgHead.innerText = `user with email "${UserCreds.email}" logged in `;
+                GreetHead.innerText = `welcome ${UserInfo.password + " " + UserInfo.username}!`
+            }
+        }
+
+        window.addEventListener('load', CheckCred);
+        SigoutBtn.addEventListener('click', Signout)
+    </script>
+
+</body>
+
+</html>

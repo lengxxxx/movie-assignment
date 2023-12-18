@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+}
+video{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+}
+img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+/* Banner */
+.background--banner{
+    /* height: 100vh;
+    width: 100%;
+    overflow: hidden; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position-x: center;
+    background-attachment: fixed;
+    background-position: center;
+}
+.banner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%,rgba(0, 0, 0, .9) 1%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 100%);
+}
+/* Menu */
+.menu{
+    width: 95%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width:600px){
+    .menu{
+        flex-direction: column;
+        
+    }
+    .navegacion{
+        width: 100dvw;
+    justify-content: space-around;
+    }
+}
+
+.navegacion{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+}
+@media (min-width:400px) {
+    .navegacion{
+        gap: 15px;
+    }
+}
+/* Menu izquierda */
+.logo{
+    width: 90px;
+    height: 40px;
+}
+@media (min-width:768px) {
+    .logo{
+        width: 110px;
+        height: 60px;
+    }
+}
+@media (min-width:992px) {
+    .navegacion--izquierda li:nth-child(2){
+        display: none;
+    }
+}
+.navegacion--izquierda li:nth-child(3),
+.navegacion--izquierda li:nth-child(4),
+.navegacion--izquierda li:nth-child(5),
+.navegacion--izquierda li:nth-child(6),
+.navegacion--izquierda li:nth-child(7){
+    display: none;
+}
+@media (min-width:992px) {
+    .navegacion--izquierda li:nth-child(3),
+    .navegacion--izquierda li:nth-child(4),
+    .navegacion--izquierda li:nth-child(5),
+    .navegacion--izquierda li:nth-child(6),
+    .navegacion--izquierda li:nth-child(7){
+        display: flex;
+    }
+}
+/* Menu derecha */
+.navegacion--derecha li:nth-child(1){
+    width: 25px;
+}
+.navegacion--derecha li:nth-child(4){
+    width: 25px;
+}
+.usuario{
+    width:40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.navegacion--derecha li:nth-child(1),
+.navegacion--derecha li:nth-child(2),
+.navegacion--derecha li:nth-child(3),
+.navegacion--derecha li:nth-child(4){
+    display: none;
+}
+@media (min-width:330px) {
+    .navegacion--derecha li:nth-child(1),
+    .navegacion--derecha li:nth-child(4){
+        display: flex;
+    }
+}
+@media (min-width:992px) {
+    .navegacion--derecha li:nth-child(2),
+    .navegacion--derecha li:nth-child(3){
+        display: flex;
+    }
+}
+/* Imagotipo */
+.imagotipo{
+    flex: 1;
+    width: 95%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+}
+.imagotipo--imagen{
+    min-width: 500px;
+    padding-left: 105px;
+}
+.imagotipo--info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 100px;
+}
+.imagotipo--info p{
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+}
+.imagotipo--info p:nth-child(1){
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+.imagotipo--info p:nth-child(1):hover{
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+.imagotipo--info p:nth-child(2){
+    background-color: #6d6d6eb3;
+    color: white;
+    border: 1px solid #6d6d6eb3;
+}
+.imagotipo--info p:nth-child(2):hover{
+    background-color: transparent;
+    cursor: pointer;
+}
+/* Footer */
+.footer{
+    padding-top: 20px;
+    background-color: black;
+}
+.footer--contenedor{
+    width: 95%;
+    margin-inline: auto;
+}
+.iconos{
+    display: flex;
+    gap: 20px;
+}
+.iconos li{
+    width: 30px;
+    height: 30px;
+}
+.informacion{
+    display: grid;
+    gap: 20px;
+    margin-block: 20px;
+    font-size: 15px;
+    color: rgb(133, 133, 133);
+}
+@media (min-width:400px) {
+    .informacion{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width:768px) {
+    .informacion{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (min-width:992px) {
+    .informacion{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.informacion p:hover{
+    color: white;
+    cursor: pointer;
+}
+.idioma{
+    color: white;
+    padding: 8px;
+    font-weight: 700;
+}
+.contruccion{
+    color: white;
+    padding: 10px;
+    font-weight: 900;
+    text-align: center;
+}
+/* Catalogo de peliculas */
+.catalogos{
+    padding-block: 2px;
+    background-color: black;
+    color: white;
+}
+.catalogo--peliculas{
+    width: 95%;
+    margin-inline: auto;
+}
+.peliculas{
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    gap: 12px;
+}
+.peliculas::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.pelicula{
+    min-width: 200px;
+    height: auto;
+}
+
+section {
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .content {
+    position: absolute;
+    left: 2px;
+    top: 625px;
+}
+
+section .content .details span {
+    position: relative;
+    top: -210px;
+    left: 195px;
+    color: rgb(244, 244, 246);
+    margin: 12px;
+    font-weight: 400;
+}
+
+.info {
+    position: absolute;
+    top: -95px;
+    left: 110px;
+    font-size: 25px;
+}
+
+.movie_info {
+    color: #5e5c5c;
+}
+
+.movie_info i {
+    font-size: 20px;
+}
+.sec .title {
+    font-family: 20px;
+    font-weight: 600;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.subtitle {
+    display: flex;
+
+}

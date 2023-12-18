@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigin account</title>
+    <link rel="stylesheet" href="../assets/../css/sigin.css">
+    <link rel="shortcut icon" href="/assets/../img/logo-.jpg" type="image/x-icon">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <div class="wrapper">
+        <div class="form login">
+            <h2>Login</h2>
+            <form id="LoginForm" action="">
+                <div class="input">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" name="email" id="lEmail" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" name="password" id="lPassword" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label for=""><input type="checkbox">Remember me</label>
+                    <a href="./forget-pass.html">Forgot Password</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+
+
+                <div class="register">
+                    <p>Don't have an account ? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form register">
+            <h2>Registeration</h2>
+            <form id="MainForm">
+                <div class="input">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                    <input type="text" name="username" id="username" required>
+                    <label for="">Username</label>
+                </div>
+                <div class="input">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" name="email" id="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" name="" id="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label for=""><input type="checkbox">I agree to the terms & conditions</label>
+                </div>
+                <span class="loader hidden"></span>
+                <button type="submit" class="btn" class="doneLink"> Register</button>
+
+                <div class="register">
+                    <p>Already have an account ? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAv7YfVCjywt_aA39zLKWSSzR8z4Z9Z64A",
+            authDomain: "login-register-46a5f.firebaseapp.com",
+            projectId: "login-register-46a5f",
+            storageBucket: "login-register-46a5f.appspot.com",
+            messagingSenderId: "266432842539",
+            appId: "1:266432842539:web:cc95d556824a33fb85136e",
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+        const dbref = ref(db);
+
+        const loader = document.querySelector('.hidden');
+
+        let Username = document.getElementById('username');
+        let Email = document.getElementById('email');
+        let lEmail = document.getElementById('lEmail');
+        let Password = document.getElementById('password');
+        let lPassword = document.getElementById('lPassword');
+
+        let RegisterUser = evt => {
+            loader.classList.remove('hidden');
+
+            evt.preventDefault();
+            createUserWithEmailAndPassword(auth, Email.value, Password.value)
+                .then((credentials) => {
+                    set(ref(db, 'UsersAuthList/' + credentials.user.uid),
+                        {
+                            username: Username.value,
+                            // email: Email.value,
+                            // password: Password.value
+                        })
+
+                    wrapper.classList.remove('active');
+
+                    console.log("credentials:::", credentials);
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+
+
+        };
+
+        let LoginUser = evt => {
+            console.log("lEmail.value:::", lEmail.value);
+            console.log(" lPassword.value:::", lPassword.value);
+            evt.preventDefault();
+            signInWithEmailAndPassword(auth, lEmail.value, lPassword.value)
+                .then((credentials) => {
+                    sessionStorage.setItem("user-info", JSON.stringify({
+                        email: lEmail.value,
+                    }))
+                    sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
+                    window.location.href = 'index.html'
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+            console.log("LoginUser:::");
+        }
+        console.log("window.location.href  :::", window.location.href);
+        MainForm.addEventListener('submit', RegisterUser);
+        LoginForm.addEventListener('submit', LoginUser)
+
+
+    </script>
+
+    <script src="../assets/../js/sigin.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+</body>
+
+</html>
